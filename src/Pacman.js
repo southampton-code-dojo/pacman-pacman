@@ -113,7 +113,7 @@ Pacman.prototype.move = function() {
 
 		var new_dir = pacmanMove(null);
 
-		if ([UP, DOWN, LEFT, RIGHT].indexOf(new_dir) > -1) {
+		if ([UP, DOWN, LEFT, RIGHT].indexOf(new_dir) > -1 && this.canMove(new_dir)) {
 			this.dir = new_dir
 		}
 			
