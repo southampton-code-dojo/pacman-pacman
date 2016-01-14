@@ -110,8 +110,15 @@ Pacman.prototype.move = function() {
 	}
 	else{
 		//on grid center. change direction if needed
+		var positions = {
+			"pacman": {dir: mrPacman.dir, x: mrPacman.getCol(), y: mrPacman.getRow()},
+			"red": {dir: blinky.dir, x: blinky.getCol(), y: blinky.getRow(), isDead: blinky.isDead, isWeak: blinky.isWeak, isBlinking: blinky.isBlinking},
+			"cyan": {dir: inky.dir, x: inky.getCol(), y: inky.getRow(), isDead: inky.isDead, isWeak: inky.isWeak, isBlinking: inky.isBlinking},
+			"orange": {dir: clyde.dir, x: clyde.getCol(), y: clyde.getRow(), isDead: clyde.isDead, isWeak: clyde.isWeak, isBlinking: clyde.isBlinking},
+			"pink": {dir: pinky.dir, x: pinky.getCol(), y: pinky.getRow(), isDead: pinky.isDead, isWeak: pinky.isWeak, isBlinking: pinky.isBlinking}
+		}
 
-		var new_dir = pacmanMove(null);
+		var new_dir = pacmanMove(positions);
 
 		if ([UP, DOWN, LEFT, RIGHT].indexOf(new_dir) > -1 && this.canMove(new_dir)) {
 			this.dir = new_dir
